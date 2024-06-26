@@ -95,8 +95,11 @@ git rebase
 how to check the changes in different areas
 
 Git diff
+git diff HEAD
+git diff --cached
 
 =========================
+
 
 
 
