@@ -1,0 +1,142 @@
+Master server + Client Server
+
+VCS ===> version control system ===> it maintained by source code ==> will track the history for the all the contents 
+
+VSC == Types
+
+CVCS ===> Centralised VSC ===> SVC ==>  
+DVCS ===> Distributed ====> Git  ===>  
+
+SVC                                         Git
+1:Single point of failure                   1:we maintained by back up
+2: when we are working with need internet access 2: internet access required for pull and push
+
+
+
+Master Server ===> GitHub
+Client ===> Git
+
+
+Git Workflow
+================
+Master server===> GitHub ==> we need maintained entire project info as directory
+||
+Git ==> git clone ==> url
+
+\\\\\\\\\\\
+local are ===> git status ==> working tree is clean
+
+\\\\\\\\\
+we need to start the work ,, creating new file, modify old file, delete the file
+working are ===> git status ==> colour red ==> untraced file
+
+\\\\\\\
+what the changes we made move to staging are 
+git add . ==> git status ==> colour green ==> file traced 
+
+\\\
+how to move the changes to staging to local
+git commit -m "we are tying to push"
+
+Git status ==> working tree is clean 
+
+git log
+
+git rebase 
+
+
+==============
+
+
+now final step we need push the changes to remote repo
+git push origin main
+
+
+============================
+Git Branching stagey :
+
+5 branching stagey 
+
+1: Master / Mian      ===== Live
+2: Dev
+3: Feature
+
+4: Release  === based on task
+5: Error 
+
+How to create the new branch
+git branch branch name
+
+How to change the one branch to another branch
+checkout /switch
+
+===========================
+
+currently we working in the file 
+checkout 
+
+==
+git stash 
+
+=========
+
+Now changes are moved to working to staging how to get one step back back
+
+git reset 
+git reset --hard
+git reset --soft
+ 
+
+===============
+Now we moved the changes staging to local
+git rebase 
+
+=================
+how to check the changes in different areas
+
+Git diff
+
+=========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
