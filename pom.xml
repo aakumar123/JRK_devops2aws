@@ -17,7 +17,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
-    <sonar.host.url>http://13.233.129.130:9000/</sonar.host.url>
+    <sonar.host.url>http://65.2.4.101:9000/</sonar.host.url>
   </properties>
 
   <dependencies>
@@ -32,12 +32,12 @@
   <distributionManagement>
 		 <snapshotRepository>
 		    <id>deploymentRepo</id>
-		    <url>http://13.233.17.214:8081/repository/maven-snapshots/</url>
+		    <url>http://65.1.100.211:8081/repository/maven-snapshots/</url>
 		 </snapshotRepository>
 		
 		 <repository>
 		    <id>deploymentRepo</id>
-		    <url>http://13.233.17.214:8081/repository/maven-releases/</url>
+		    <url>http://65.1.100.211:8081/repository/maven-releases/</url>
 		 </repository>
   </distributionManagement>
 
