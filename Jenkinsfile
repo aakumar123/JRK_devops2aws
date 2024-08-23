@@ -24,5 +24,13 @@ pipeline {
             }
         }
 
+        stage ("backup deploy to nexus"){
+            steps{
+                configFileProvider([configFile(fileId: '3dbade54-9388-499a-a4c0-1628019c3d60', variable: 'mavensettings')]) {
+                  sh "mvn -s $mavensettings clean deploy -DskipTest=true"
+             }
+            }
+        }
+
  }
 }
