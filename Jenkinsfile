@@ -5,10 +5,6 @@ pipeline {
         maven 'maven3'
     }
 
-    environment{
-        SCANNER_HOME= tool 'sonar-server'
-    }
-
     stages {
         stage ("git checkout the code"){
             steps{
