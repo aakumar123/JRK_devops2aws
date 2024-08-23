@@ -14,7 +14,7 @@ pipeline {
 
         stage ("code compile"){
             steps{
-                sh "mvn clean compile"
+                sh "mvn clean compile sonar:sonar"
             }
         }
 
@@ -32,5 +32,12 @@ pipeline {
             }
         }
 
+        stage ("code deployemt in Prod server"){
+            steps{
+                sshagent(['73433ea7-d41e-4526-8605-0dd613915ad2']) {
+                 sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/Pipeline/target/maven-webapp.war ec2-user@172.31.11.82:/home/ec2-user/tomcat9/webapps"
+              }
+            }
+        }
  }
 }
