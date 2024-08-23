@@ -14,7 +14,13 @@ pipeline {
 
         stage ("code compile"){
             steps{
-                sh "mvn clean compile sonar:sonar"
+                sh "mvn clean compile"
+            }
+        }
+
+        stage ("code package"){
+            steps{
+                sh "mvn clean package"
             }
         }
 
