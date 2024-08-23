@@ -14,19 +14,9 @@ pipeline {
 
         stage ("code compile"){
             steps{
-                sh "mvn clean compile"
+                sh "mvn clean compile sonar:sonar"
             }
         }
 
-        stage ("code scan"){
-            steps{
-                withSonarQubeEnv('sonar-server') {
-                  sh ''' $/usr/bin/sonar-scanner -Dsonar.projectName=devops_maven_project \
-                        -Dsonar.java.binaries=. \
-                        -Dsonar.projectKey=devops_maven_project '''
-            }
-
-        }
-    }  
  }
 }
