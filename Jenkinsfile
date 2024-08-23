@@ -21,7 +21,7 @@ pipeline {
         stage ("code scan"){
             steps{
                 withSonarQubeEnv('sonar-server') {
-                  sh ''' $SCANNER_HOME/usr/bin/sonar-scanner -Dsonar.projectName=devops_maven_project \
+                  sh ''' $/usr/bin/sonar-scanner -Dsonar.projectName=devops_maven_project \
                         -Dsonar.java.binaries=. \
                         -Dsonar.projectKey=devops_maven_project '''
             }
