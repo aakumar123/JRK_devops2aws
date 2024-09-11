@@ -1,0 +1,118 @@
+Today Topic:
+===================Project Sessions ===========
+Project ===> Source code development application  + Testing + Deployment of Production Servers
+
+
+========== Sample Project Without container / Cluster ========
+
+                     Pipeline Project / Declarative / Script 
+Jenkins setup:
+ Problem : Application code is available in GitHub Repo .... we need seclude a pipeline job for every day at 1 pm job will trigger automatically when the cnages may happed ... using the Jenkins file and tools as maven , sq, ne, tomcat.. go pom.xml
+
+Step1 : Open the pom.xml for application understating and open the source code  
+
+     pom.xml ==> 
+
+Step 2: Create a Jenkins file
+
+Code is available at GitHub we need to get the code into Jenkins server
+
+we need to create a communication channel in between Jenkins & GitHub
+        GitHub ==username with password
+        Jenkins server credentials pages add update 
+
+         Manage Jenkins === credentials page
+
+            then go to pipeline syntax == git ==> GitHub repo URL == branch == credential 
+
+Steps 3 : Code validate 
+              Manage Jenkins ===> configuration === maven install
+
+Step 4: Code Scan
+              we will interact with Dev team we need the information for rules condition
+                  Sonar Qube server apply email notification send 
+                     we need to create a communication channel in between Jenkins & SQ
+                          Plugin == SonarQube Scanner 
+                             Sonar Token update == credentials
+                                   pom.xml == under properties tab  == sq server details
+
+Step 5: Code backup:
+         we need to create a communication channel in between Jenkins & Nexus
+             Plugin == ConfigFile provider 
+                 nexus user name password
+                      maven== settings.xml ==> Server details === repo name / user name / password
+                           Jenkins server == under == tools section == under maven == conf == 
+                       pom.xml == distribution management tab ==
+                          adding the repos in general repo & snapshot repo === based on version 
+                               back up will placed 
+Step 6: Code deployment in Production server:
+        we need to create a communication channel in between Jenkins & Tomcat
+            Plugin : Container to deploy 
+                       Jenkins server === configure == tomcat url
+                            tomcat creational add
+Step 7: Email Notification:
+              Plugin email:
+                 SNS Notification ;;;; Job Success / failed / reject/ all users 
+
+
+
+Jenkins File :  
+
+ pipeline {
+    agent any
+
+    tools 
+      maven = maven3
+
+    stages {
+        stage("Getting the source code"){
+            steps{
+                git clone url
+            }
+        }
+
+        stage ("code validate"){
+            steps{
+                sh "mvn clean validate"
+            }
+        }
+
+        stage ("code scan"){
+            steps{
+                sh "sonar:sonar"
+            }
+        }
+
+        stage ("code backup"){
+            steps{
+                configFileProvider
+            }
+        }
+
+        stage ("deployment of code"){
+            steps{
+                sh "scp -o "
+            }
+        }
+
+        stage ("emal notifiacation"){
+            steps{
+                Email send 
+            }
+        }
+    }
+}
+
+===================
+Schedule the job:
+
+1 webhooks 
+2 pollscm
+3 build pediatrically ==== 0 13 * * *
+ 
+
+
+
+ 
+          
+    
